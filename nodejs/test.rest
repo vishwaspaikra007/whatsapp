@@ -1,0 +1,48 @@
+POST http://localhost:3000/register
+content-type: application/json
+
+{
+    "email": "vishwaspaikra00@gmail.com",
+    "password": "hello"
+}
+
+###
+
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "email": "vishwaspaikra007@gmail.com",
+    "PWD": "vishwas"
+}
+
+###
+
+GET http://localhost:3000/check
+# Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWVmNjI4NGJmMDlmOTJjNDFmMmExN2QiLCJhZ2UiOjI0LCJwb3N0Ijo0MCwiaWF0IjoxNTkyNzY5NzgzLCJleHAiOjE1OTI3NzA2ODN9.BRtnmBNjz_gqY4apx7E1atIDuFdaW9HCjMHRDDI_d-s
+
+###
+POST http://localhost:3000/showToken
+content-type: application/json
+
+{
+   "email": "vishwaspaikra007@gmail.com",
+    "password": "hello" 
+}
+
+###
+POST http://localhost:3000/requestMail
+content-type: application/json
+
+{
+   "to": "vishwaspaikra007@gmail.com"
+}
+
+###
+POST http://localhost:3000/verifyOTP
+content-type: application/json
+
+{
+   "email": "vishwaspaikra007@gmail.com",
+   "otp": 797596
+}

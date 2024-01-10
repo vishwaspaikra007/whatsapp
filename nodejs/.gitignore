@@ -1,0 +1,5 @@
+node_modules
+database/dbPath.js
+index2.html
+.env
+bfg-1.13.0.jar
