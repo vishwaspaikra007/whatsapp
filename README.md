@@ -1,5 +1,5 @@
 # WhatsApp Clone
-Live link https://vishwaspaikra007.github.io/whatsapp-look-alike/chats
+Live link https://vishwaspaikra007.github.io/whatsapp-look-alike/
 ## Setup Instructions
 
 1. Install NVM (Node Version Manager):
