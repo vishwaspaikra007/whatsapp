@@ -10,8 +10,10 @@ module.exports = ()=> {
             // console.log(req.cookies.refreshToken)
             jwt.verify(req.cookies.refreshToken, process.env.REFRESH_TOKEN_KEY, (err, data) => {
     
-                if(err)
+                if(err) {
                     res.send({logedIn: false, msg:"login again"})
+                    return
+                }
                 // console.log(data, data.sub)
                 userPasswordModel.updateOne({_id: data.sub}, {$pull: {refreshTokens: req.cookies.refreshToken}})
                 .then(result => {
