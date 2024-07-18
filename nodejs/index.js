@@ -30,16 +30,18 @@ require('./admin/refreshTokenFunc')()
 
 
 app.use(cors(
-    {origin: ['http://127.0.0.1:5500', 'http://localhost:5500', 'http://localhost:3001','http://localhost:3000', 'https://vishwaspaikra007.github.io', 'https://vishwas-auth.herokuapp.com'],
-     credentials: true}
-     ))
+    {
+        origin: ['http://127.0.0.1:5500', 'http://localhost:5500', 'http://localhost:3001', 'http://localhost:3000', 'https://vishwaspaikra007.github.io', 'https://vishwas-auth.herokuapp.com'],
+        credentials: true
+    }
+))
 app.options('*', cors())  // enable pre-flight request for complex cors request for every route
 app.use(express.json())
 app.use(passport.initialize())
 
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, '/public')))    
-app.set('view engine', 'ejs')
+// app.use(express.static(path.join(__dirname, '/public')))    
+// app.set('view engine', 'ejs')
 
 app.use(register)
 app.use(login)
@@ -51,9 +53,20 @@ app.use(saveUserMetaData)
 app.use(getContacts)
 app.use(logout)
 app.use(require('./admin/testRoute'))
-app.get('/',(req, res) => {
-    res.render('index.ejs')
-})
+
+
+app.use(express.static(path.join(__dirname, './public/client/build')))
+
+app.get('/', (req, res) => {
+    console.log("request sent for home file")
+    res.sendFile(path.join(__dirname, './public/client/build/whatsapp-look-alike/index.html'));
+});
+
+app.get('*', (req, res) => {
+    console.log("request sent for file")
+    res.sendFile(path.join(__dirname, './public/client/build/whatsapp-look-alike', 'index.html'));
+});
+
 
 const PORT = process.env.PORT || 3000
 server.listen(PORT, () => {
