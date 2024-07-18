@@ -23,7 +23,7 @@ export default function EnterEmail(props) {
 
     const handleRequest = (e) => {
         //e.preventDefault()
-        console.log(e.key)
+        // console.log(e.key)
         if(e.key === "Enter" || e.keyCode === 13) {
             handlServerRequest(e)
         }

@@ -1,6 +1,7 @@
 const config = {
-    production: false,
-    server: 'https://whatsapplookalike.onrender.com',
+    production: true,
+    // server: 'https://whatsapplookalike.onrender.com',
+    server: 'https://whatsapp-jfqs.onrender.com/',
     local: 'http://localhost:3000'
 }
 
